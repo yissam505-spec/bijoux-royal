@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIJOUX ROYAL | Boutique</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b0a08;color:white;font-family:Arial,sans-serif}
+header{padding:22px 5%;display:flex;justify-content:space-between;align-items:center;background:#111;border-bottom:1px solid #d9ad55;flex-wrap:wrap;gap:15px}
+.logo{color:#e8c36c;font-family:Georgia,serif;font-size:25px;letter-spacing:3px}
+nav a{color:white;text-decoration:none;margin:0 10px}
+nav a:hover{color:#e8c36c}
+.hero{padding:70px 8%;min-height:380px;background:radial-gradient(ellipse at right,#563b17,#0b0a08 65%);display:flex;align-items:center;justify-content:space-between;gap:30px}
+.hero div{max-width:600px}
+h1{font:clamp(36px,5vw,60px) Georgia,serif;margin:15px 0;color:#f2d58b}
+p{line-height:1.7;color:#d2c7b5}
+.btn{display:inline-block;background:#dfb85e;color:#171109;border:0;border-radius:4px;padding:13px 20px;font-weight:bold;cursor:pointer;text-decoration:none}
+.hero .gem{font-size:120px}
+section{padding:50px 6%}
+h2{text-align:center;font:34px Georgia,serif;color:#e8c36c;margin-top:0}
+.categories{background:#f8f2e8;color:#171109}
+.category-grid,.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.category{text-align:center;padding:20px;background:white;border:1px solid #dfc58e;border-radius:8px}
+.category span{display:block;font-size:40px;margin-bottom:12px}
+.products{margin-top:28px}
+.product{border:1px solid #6e5328;border-radius:8px;overflow:hidden;background:#17130d}
+.photo{height:150px;display:grid;place-items:center;font-size:65px;background:radial-gradient(circle,#62471e,#17130d)}
+.info{padding:15px}
+.info h3{font-family:Georgia,serif}
+.price{color:#f2d58b;font-weight:bold;font-size:19px}
+.info button{width:100%;margin-top:10px}
+.about{text-align:center;background:#17130d}
+.about p{max-width:650px;margin:auto}
+.contact{text-align:center;background:#f8f2e8;color:#171109}
+.contact p{color:#514737}
+footer{text-align:center;padding:25px;color:#bdb3a1;border-top:1px solid #49391f}
+@media(max-width:700px){
+ .hero{padding:45px 7%;flex-direction:column;text-align:center}
+ .hero .gem{font-size:80px}
+ .category-grid,.products{grid-template-columns:repeat(2,1fr)}
+ header{justify-content:center}
+ nav{text-align:center;line-height:2}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">♛ BIJOUX ROYAL</div>
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#categories">Catégories</a>
+    <a href="#boutique">Boutique</a>
+    <a href="#contact">Contact</a>
+    <a href="#boutique">Panier (<span id="count">0</span>)</a>
+  </nav>
+</header>
+<main>
+<section class="hero" id="accueil">
+  <div>
+    <p style="color:#e8c36c;letter-spacing:4px">COLLECTION EXCLUSIVE</p>
+    <h1>Des bijoux qui rendent chaque moment unique.</h1>
+    <p>Découvrez notre collection de bijoux et d'accessoires élégants pour sublimer votre style.</p>
+    <a class="btn" href="#boutique">Découvrir la collection →</a>
+  </div>
+  <div class="gem">💎</div>
+</section>
+<section class="categories" id="categories">
+  <h2>Nos catégories</h2>
+  <div class="category-grid">
+    <div class="category"><span>📿</span>Colliers</div>
+    <div class="category"><span>💎</span>Boucles d'oreilles</div>
+    <div class="category"><span>💍</span>Bagues</div>
+    <div class="category"><span>✨</span>Bracelets</div>
+  </div>
+</section>
+<section id="boutique">
+  <h2>Nos produits phares</h2>
+  <div class="products">
+    <article class="product">
+      <div class="photo">📿</div>
+      <div class="info">
+        <h3>Collier Royal</h3>
+        <p>Un bijou élégant pour chaque occasion.</p>
+        <div class="price">129 DH</div>
+        <button class="btn" onclick="add('Collier Royal',129)">Ajouter au panier</button>
+      </div>
+    </article>
+    <article class="product">
+      <div class="photo">💎</div>
+      <div class="info">
+        <h3>Boucles Élégance</h3>
+        <p>Une touche raffinée et lumineuse.</p>
+        <div class="price">99 DH</div>
+        <button class="btn" onclick="add('Boucles Élégance',99)">Ajouter au panier</button>
+      </div>
+    </article>
+    <article class="product">
+      <div class="photo">💍</div>
+      <div class="info">
+        <h3>Bague Prestige</h3>
+        <p>Un détail chic et intemporel.</p>
+        <div class="price">89 DH</div>
+        <button class="btn" onclick="add('Bague Prestige',89)">Ajouter au panier</button>
+      </div>
+    </article>
+    <article class="product">
+      <div class="photo">✨</div>
+      <div class="info">
+        <h3>Bracelet Doré</h3>
+        <p>Un accessoire délicat au quotidien.</p>
+        <div class="price">109 DH</div>
+        <button class="btn" onclick="add('Bracelet Doré',109)">Ajouter au panier</button>
+      </div>
+    </article>
+  </div>
+  <div style="text-align:center;margin-top:30px">
+    <button class="btn" onclick="order()">Commander via WhatsApp →</button>
+  </div>
+</section>
+<section class="about">
+  <h2>À propos de Bijoux Royal</h2>
+  <p>Bijoux Royal vous propose une sélection de bijoux et d'accessoires pour révéler votre élégance. Notre objectif est de vous offrir une expérience simple et agréable.</p>
+</section>
+<section class="contact" id="contact">
+  <h2>Contactez-nous</h2>
+  <p>Vous souhaitez commander ou poser une question ? Contactez-nous sur WhatsApp.</p>
+  <button class="btn" onclick="order()">Nous contacter</button>
+</section>
+</main>
+<footer>© 2026 BIJOUX ROYAL · Tous droits réservés.</footer>
+<script>
+// Remplacez ce numéro par votre numéro WhatsApp marocain.
+// Exemple : 212612345678 (sans +, ni espaces).
+const WHATSAPP = "212782213613";
+let cart = [];
+function add(name, price) {
+  cart.push({name, price});
+  document.getElementById("count").textContent = cart.length;
+  alert(name + " ajouté au panier !");
+}
+function order() {
+  if (cart.length === 0) {
+    alert("Ajoutez d'abord un produit au panier.");
+    return;
+  }
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  const details = cart.map(item =>
+    "- " + item.name + " : " + item.price + " DH"
+  ).join("\n");
+  const message = "Bonjour Bijoux Royal ! Je souhaite commander :\n"
+    + details + "\nTotal : " + total + " DH";
+  window.open(
+    "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(message),
+    "_blank"
+  );
+}
+</script>
+</body>
+</html>
